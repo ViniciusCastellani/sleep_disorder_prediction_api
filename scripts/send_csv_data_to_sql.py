@@ -5,17 +5,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-df = pd.read_csv('Sleep_Health_Massive_Dataset.csv')
-df = df.fillna('None')
+df = pd.read_csv("Sleep_Health_Massive_Dataset.csv")
+df = df.fillna("None")
 
 try:
     connection = mysql.connector.connect(
         host=os.getenv("DB_HOST"),
         user=os.getenv("DB_USER"),
         password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME")
+        database=os.getenv("DB_NAME"),
     )
-    
+
     if connection.is_connected():
         cursor = connection.cursor()
         print("Connected to database. Starting insertion...")
@@ -31,7 +31,7 @@ try:
         values = [tuple(x) for x in df.values]
 
         cursor.executemany(sql_command, values)
-        
+
         connection.commit()
         print(f"Success! {cursor.rowcount} rows inserted into sleep_data table.")
 
@@ -39,7 +39,7 @@ except mysql.connector.Error as error:
     print(f"Error connecting or inserting: {error}")
 
 finally:
-    if 'connection' in locals() and connection.is_connected():
+    if "connection" in locals() and connection.is_connected():
         cursor.close()
         connection.close()
         print("Connection closed.")
