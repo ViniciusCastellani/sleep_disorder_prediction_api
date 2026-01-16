@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+venv/
+.env/
+.venv/
+
+# Environment variables
+.env
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models / artifacts (se forem grandes ou sensíveis)
+*.joblib
+*.pkl
+
+# VS Code
+.vscode/
