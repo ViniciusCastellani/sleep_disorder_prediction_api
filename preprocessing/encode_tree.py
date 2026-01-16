@@ -4,8 +4,7 @@ from typing import Dict, Tuple
 
 
 def encode_tree(
-    df: pd.DataFrame,
-    target_col: str = "sleep_disorder"
+    df: pd.DataFrame, target_col: str = "sleep_disorder"
 ) -> Tuple[pd.DataFrame, Dict[str, LabelEncoder]]:
 
     df = df.copy()
@@ -21,4 +20,3 @@ def encode_tree(
         encoders[col] = le
 
     return df, encoders
-

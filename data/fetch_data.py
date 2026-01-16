@@ -9,7 +9,7 @@ def fetch_sql_sleep_data(db_config: Dict[str, str]) -> pd.DataFrame:
             host=db_config["host"],
             user=db_config["user"],
             password=db_config["password"],
-            database=db_config["database"]
+            database=db_config["database"],
         )
 
         cursor = connection.cursor(dictionary=True)
@@ -22,6 +22,6 @@ def fetch_sql_sleep_data(db_config: Dict[str, str]) -> pd.DataFrame:
         raise RuntimeError(f"Error while trying to access the database: {error}")
 
     finally:
-        if 'connection' in locals() and connection.is_connected():
+        if "connection" in locals() and connection.is_connected():
             cursor.close()
             connection.close()

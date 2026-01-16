@@ -12,8 +12,9 @@ FIELD_MAP = {
     "Heart Rate": "heart_rate",
     "Daily Steps": "daily_steps",
     "systolic": "systolic",
-    "diastolic": "diastolic"
+    "diastolic": "diastolic",
 }
+
 
 def map_to_model_features(extracted: dict) -> dict:
     mapped = {}
@@ -22,4 +23,3 @@ def map_to_model_features(extracted: dict) -> dict:
         if human_key in extracted:
             mapped[model_key] = extracted[human_key]
     return mapped
-

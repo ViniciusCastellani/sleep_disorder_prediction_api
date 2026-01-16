@@ -11,7 +11,7 @@ ALLOWED_FIELDS: Set[str] = {
     "BMI Category",
     "Blood Pressure",
     "Heart Rate",
-    "Daily Steps"
+    "Daily Steps",
 }
 
 MODEL_REQUIRED_FIELDS: Set[str] = {
@@ -26,16 +26,14 @@ MODEL_REQUIRED_FIELDS: Set[str] = {
     "Heart Rate",
     "Daily Steps",
     "systolic",
-    "diastolic"
+    "diastolic",
 }
+
 
 def validate_extraction(data: Dict) -> Dict:
     extracted = data.get("extracted", {})
 
-    cleaned = {
-        "extracted": {},
-        "missing_fields": []
-    }
+    cleaned = {"extracted": {}, "missing_fields": []}
 
     for key, value in extracted.items():
         if key in ALLOWED_FIELDS:
@@ -64,6 +62,7 @@ def normalize_fields(extracted: Dict) -> Dict:
 
     return normalized
 
+
 def split_blood_pressure(extracted: Dict) -> Dict:
     extracted = extracted.copy()
 
@@ -79,5 +78,3 @@ def split_blood_pressure(extracted: Dict) -> Dict:
 
     extracted.pop("Blood Pressure", None)
     return extracted
-
-

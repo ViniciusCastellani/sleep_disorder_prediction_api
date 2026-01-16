@@ -4,11 +4,7 @@ from typing import Dict, Any
 
 
 def predict_nn(
-    input_data: Dict[str, Any],
-    model,
-    scaler,
-    target_encoder,
-    dummy_columns
+    input_data: Dict[str, Any], model, scaler, target_encoder, dummy_columns
 ) -> Dict[str, Any]:
 
     df = pd.DataFrame([input_data])
@@ -26,5 +22,5 @@ def predict_nn(
     return {
         "class_id": int(class_idx),
         "class_name": class_name,
-        "probability": round(confidence, 4)
+        "probability": round(confidence, 4),
     }

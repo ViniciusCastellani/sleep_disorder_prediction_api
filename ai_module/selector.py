@@ -13,9 +13,7 @@ class AISelector:
             prompt_data = yaml.safe_load(f)
 
         system_prompt = prompt_data["system"]["content"]
-        user_prompt = prompt_data["user"]["content"].format(
-            user_input=self.user_input
-        )
+        user_prompt = prompt_data["user"]["content"].format(user_input=self.user_input)
 
         full_prompt = f"""SYSTEM:{system_prompt}
                           USER:{user_prompt}
@@ -40,4 +38,4 @@ class AISelector:
         if start == -1 or end == -1:
             raise ValueError("Model output does not contain valid JSON")
 
-        return text[start:end + 1]
+        return text[start : end + 1]
