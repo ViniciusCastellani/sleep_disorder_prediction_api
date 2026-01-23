@@ -13,8 +13,13 @@ numpy==1.26.2
 
 # Database
 mysql-connector-python==8.2.0
+
+# Environment Configuration
 python-dotenv==1.0.0
 
-# LLM Integration
+# Google Gemini AI
+google-genai==0.4.0
+
+# Utilities
 requests==2.31.0
 PyYAML==6.0.1

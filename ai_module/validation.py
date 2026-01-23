@@ -14,21 +14,6 @@ ALLOWED_FIELDS: Set[str] = {
     "Daily Steps",
 }
 
-MODEL_REQUIRED_FIELDS: Set[str] = {
-    "Gender",
-    "Age",
-    "Occupation",
-    "Sleep Duration",
-    "Quality of Sleep",
-    "Physical Activity Level",
-    "Stress Level",
-    "BMI Category",
-    "Heart Rate",
-    "Daily Steps",
-    "systolic",
-    "diastolic",
-}
-
 
 def validate_extraction(data: Dict) -> Dict:
     extracted = data.get("extracted", {})

@@ -1,6 +1,6 @@
 import yaml
 import json
-from ai_module.ollama_client import call_gemma
+from ai_module.gemini_client import call_gemini
 
 
 class AISelector:
@@ -19,7 +19,7 @@ class AISelector:
                           USER:{user_prompt}
                        """
 
-        output = call_gemma(full_prompt)
+        output = call_gemini(full_prompt)
         cleaned = self._clean_json_output(output)
 
         return json.loads(cleaned)
